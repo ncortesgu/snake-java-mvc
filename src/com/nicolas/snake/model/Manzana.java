@@ -5,13 +5,15 @@ public class Manzana {
     
 Coordenadas ubicacionManzana ;
 
+public Manzana() {
+}
 
 public Manzana(Coordenadas ubicacionManzana) {
   this.ubicacionManzana = ubicacionManzana;
 }
 
 
-
+// verificamos que cierta coordenada iguala las de nuestra manzana
 
 public boolean estaManzana(Coordenadas c){
 

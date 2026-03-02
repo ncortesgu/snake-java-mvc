@@ -9,6 +9,7 @@ public class Snake {
    private LinkedList<Coordenadas> cuerpo = new LinkedList<Coordenadas>(); // CUERPO
    private Direccion direccionActual;
    
+   // constructor en el cual de damos una pocision por default a la snake
    public Snake() {
     cuerpo.add(new Coordenadas(1, 1));
     cuerpo.add(new Coordenadas(1, 2));
@@ -42,17 +43,21 @@ public class Snake {
         }
     }
 
+    // retornamos cola
+
     public Coordenadas cola(){
 
         return cuerpo.getFirst();
     }
 
-    
+    // retornamos cabezaActual
     public Coordenadas cabeza(){
 
        return cuerpo.getLast(); 
     }
       
+    // retornamos la posible futura cabeza 
+
     public Coordenadas cabezaNueva(){
        
         switch(direccionActual){
@@ -91,7 +96,7 @@ public class Snake {
         }
 
     }
-
+   // retornamos verdadero o falso dependiendo de si la coordenada de parametro iguala a la de algun pedazo de nuestra serpiente
     public boolean estaSerpiente (Coordenadas c){
 
         
@@ -106,13 +111,15 @@ public class Snake {
             
     }
         
+    // retornamos colision con cuerpo , si crece tenemos en cuenta todo el cuerpo , si no crece el espacio se la cola se borrara 
+   // no lo tenemos en cuenta por lo tanto por eso el cambio de indice
     public boolean coliCuerpo (Coordenadas c, boolean crece){
 
         int indice = crece ? 0 : 1;
         int limite = cuerpo.size()-1;
         for(int i= indice ; i < limite ;i++){
 
-            if(cuerpo.get(i).getY() == c.getY() && cuerpo.get(i).getX() == c.getX()){;
+            if(cuerpo.get(i).getY() == c.getY() && cuerpo.get(i).getX() == c.getX()){
         
             return true;
           }
@@ -120,6 +127,18 @@ public class Snake {
 
          return false;
             
+    }
+
+    // retornamos tamaño de nuestra linked list
+
+    public int tamañoSerpiente(){
+        return cuerpo.size();
+    }
+
+    // retornamos un indice de nuestra linked list
+
+    public Coordenadas indiceSnake(int i){
+        return cuerpo.get(i);
     }
 
 }

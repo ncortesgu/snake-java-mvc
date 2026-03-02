@@ -1,5 +1,7 @@
 package com.nicolas.snake.model;
 
+// va a ser nuestra clase principal para saber las coordenadas de cada objeto en nuestro juego
+
 public class Coordenadas {
 
     // ATRIBUTOS 
